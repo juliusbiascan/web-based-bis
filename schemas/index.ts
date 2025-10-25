@@ -1,5 +1,5 @@
 import * as z from "zod";
-import { UserRole } from "@/lib/generated/prisma";
+import { UserRole } from "@prisma/client";
 
 export const ProfileFirstSetupSchema = z.object({
   firstName: z.string().min(1, { message: "First name is required" }),

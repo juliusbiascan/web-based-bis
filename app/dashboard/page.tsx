@@ -1,4 +1,4 @@
-import { UserRole } from "@/lib/generated/prisma";
+import { UserRole } from "@prisma/client";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 

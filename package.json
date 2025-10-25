@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate && npm run prisma:inline",
+    "postinstall": "prisma generate",
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
-    "prisma:inline": "cp ./node_modules/.prisma/client/*.js ./node_modules/@prisma/client",
-    "prisma:generate": "prisma generate && npm run prisma:inline"
+    "lint": "eslint"
   },
   "dependencies": {
     "@aigencorp/face-liveness-sdk": "^1.0.9",

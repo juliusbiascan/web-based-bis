@@ -31,7 +31,23 @@ export const authRoutes = [
 export const apiAuthPrefix = "/api/auth";
 
 /**
+ * Routes that require profile verification
+ * Users without verified profiles will be redirected to verify-profile page
+ * @type {string[]}
+ */
+export const protectedRoutes = [
+  "/dashboard/user",
+  "/dashboard/admin"
+];
+
+/**
+ * Profile verification route
+ * @type {string}
+ */
+export const profileVerificationRoute = "/dashboard/user/verify-profile";
+
+/**
  * The default redirect path after logging in
  * @type {string}
  */
-export const DEFAULT_LOGIN_REDIRECT = "/settings";
+export const DEFAULT_LOGIN_REDIRECT = "/dashboard";

@@ -13,6 +13,35 @@ enum UserRole {
   USER
 }
 
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum CivilStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+  SEPARATED
+}
+
+enum Suffix {
+  JR
+  SR
+  II
+  III
+  IV
+  V
+}
+
+enum VerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
 model User {
   id                    String                 @id @default(cuid())
   name                  String?
@@ -24,6 +53,7 @@ model User {
   accounts              Account[]
   isTwoFactorEnabled    Boolean                @default(false)
   twoFactorConfirmation TwoFactorConfirmation?
+  profile               Profile?
 }
 
 model Account {
@@ -79,4 +109,45 @@ model TwoFactorConfirmation {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId])
+}
+
+model Profile {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // First Setup - Personal Information
+  firstName     String
+  lastName      String
+  middleName    String?
+  suffix        Suffix?
+  dateOfBirth   DateTime
+  civilStatus   CivilStatus
+  gender        Gender
+  contactNumber String
+
+  // Second Setup - KYC Documents
+  faceImageUrl String? // Face liveness detection image
+  idProofUrl   String? // ID proof or birth certificate
+  idFrontUrl   String? // Front side of recognized ID document
+  idBackUrl    String? // Back side of recognized ID document
+  documentType String? // Type of document uploaded
+
+  // For Minors - Guardian Information
+  isMinor          Boolean @default(false)
+  guardianName     String?
+  guardianRelation String? // mother, father, legal guardian
+  guardianIdUrl    String? // Guardian's ID proof
+
+  // Verification and Consent
+  consentGiven Boolean   @default(false)
+  consentDate  DateTime?
+
+  verificationStatus VerificationStatus @default(PENDING)
+  verifiedAt         DateTime?
+  verifiedBy         String? // Admin user ID who verified
+  rejectionReason    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

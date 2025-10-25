@@ -1,5 +1,5 @@
-import Footer from "@/components/landing/footer";
-import Header from "@/components/landing/header";
+import Footer from "@/features/landing/components/landing/footer";
+import Header from "@/features/landing/components/landing/header";
 
 const AuthLayout = ({
   children

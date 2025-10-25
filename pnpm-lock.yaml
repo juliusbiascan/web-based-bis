@@ -12,13 +12,13 @@ importers:
         specifier: ^1.0.9
         version: 1.0.9(@mediapipe/camera_utils@0.3.1675466862)(@mediapipe/control_utils@0.6.1675466023)(@mediapipe/drawing_utils@0.3.1675466124)(@mediapipe/face_detection@0.4.1646425229)
       '@auth/prisma-adapter':
-        specifier: ^2.10.0
+        specifier: ^2.11.0
         version: 2.11.0(@prisma/client@6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3))
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.65.0(react@19.1.0))
       '@prisma/client':
-        specifier: ^6.16.3
+        specifier: ^6.18.0
         version: 6.18.0(prisma@6.18.0(typescript@5.9.3))(typescript@5.9.3)
       '@prisma/extension-accelerate':
         specifier: ^2.0.2
@@ -214,7 +214,7 @@ importers:
         specifier: 15.5.6
         version: 15.5.6(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
       prisma:
-        specifier: ^6.16.3
+        specifier: ^6.18.0
         version: 6.18.0(typescript@5.9.3)
       tailwindcss:
         specifier: ^4
